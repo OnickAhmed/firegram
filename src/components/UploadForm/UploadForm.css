@@ -1,0 +1,29 @@
+:root {
+  --main: #ff007f;
+  --sub: #4e4e4e;
+  --error: #ff4a4a;
+}
+
+.uploadButton{
+    background: transparent;
+    color: var(--main);
+    font-size: 1.2rem;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border: 1px solid var(--error);
+    border-radius: 50%;
+}
+.uploadButton:hover{
+    background: transparent;
+    color: var(--main);
+    border: 1px solid var(--error);
+}
+.outputForm{
+  width: 100%;
+}
+.output{
+  height: 60px;
+  font-size: 0.8rem;
+}
