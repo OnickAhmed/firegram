@@ -1,15 +1,16 @@
+import { CircularProgress } from "@material-ui/core";
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import useFireStore from "../Hooks/useFireStore";
 import "./ImageGrid.css";
 
 const ImageGrid = ({ setSelectedImg }) => {
   const { docs } = useFireStore("images");
-
+  const [loader, setLoader] = useState(true);
   return (
     <>
       <div className="img-grid">
-        {docs &&
+        {docs ? (
           docs.map((doc) => (
             <motion.div
               layout
@@ -20,13 +21,16 @@ const ImageGrid = ({ setSelectedImg }) => {
             >
               <motion.img
                 src={doc.url}
-                alt="Uploaded Pic"
+                alt=""
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
               />
             </motion.div>
-          ))}
+          ))
+        ) : (
+          <CircularProgress color="secondary" />
+        )}
       </div>
     </>
   );
